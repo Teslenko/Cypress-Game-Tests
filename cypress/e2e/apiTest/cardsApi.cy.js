@@ -1,8 +1,10 @@
 import ApiController from "../../support/API/controllers/ApiController";
 
 describe("Api testing", () => {
+  let getDeckId;
+
   beforeEach(function () {
-    ApiController.getDeckId().as(DeckId);
+    getDeckId = ApiController.getDeckId();
   });
 
   it("tests the validationCode", function () {
@@ -24,7 +26,7 @@ describe("Api testing", () => {
         shuffled: false,
         remaining: 52,
       });
-      expect(response.body).to.have.property("deck_id");
+      expect(response.body).to.have.property(`${getDeckId}`);
     });
   });
 });
