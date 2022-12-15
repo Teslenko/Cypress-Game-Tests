@@ -8,7 +8,7 @@ export class ApiController {
       .then((response) => {
         expect(response.status).to.eq(200);
         cy.log(response.body.deck_id).then(() => {
-          return response.body.deck_id;
+          return response.body;
         });
       });
   }
